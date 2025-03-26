@@ -11,6 +11,7 @@ export default function TabLayout() {
         tabBarShowLabel: false,
         headerShown: false,
         tabBarActiveTintColor: COLORS.primary,
+        tabBarHideOnKeyboard: true,
         tabBarInactiveTintColor: COLORS.grey,
         tabBarStyle: {
           backgroundColor: "black",
