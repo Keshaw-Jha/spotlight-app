@@ -13,7 +13,7 @@ import Post from "@/components/Post";
 
 export default function Index() {
   const { signOut } = useAuth();
-  const posts = useQuery(api.posts.getFeedPosts);
+  const posts = useQuery(api.posts.getFeedPosts, {});
 
   if (posts === undefined) return <Loader />;
   if (posts.length === 0) return <NoPostsFound />;
@@ -27,7 +27,9 @@ export default function Index() {
           <Ionicons name="log-out-outline" size={24} color={COLORS.white} />
         </TouchableOpacity>
       </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{ paddingBottom: 60 }}>
         <ScrollView
           horizontal
           showsHorizontalScrollIndicator={false}
