@@ -7,6 +7,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "@/constants/theme";
 import { Id } from "@/convex/_generated/dataModel";
 import { toggleLike } from "@/convex/posts";
+import { useMutation } from "convex/react";
+import { api } from "@/convex/_generated/api";
 
 type PostProps = {
   post: {
@@ -29,6 +31,7 @@ type PostProps = {
 export default function Post({ post }: PostProps) {
   const [isLiked, setIsLiked] = useState(post.isLiked);
   const [likesCount, setLikesCount] = useState(post.likes);
+  const toggleLike = useMutation(api.posts.toggleLike);
   const handleLike = async () => {
     try {
       const newIsLiked = await toggleLike({ postId: post._id });
